@@ -1,3 +1,5 @@
+// Find maximum and minimum of array
+
 import java.util.*;
 public class max_min_array {
 	public static void max(int[] arr,int n)
