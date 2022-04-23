@@ -1,63 +1,38 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Minimize_the_Heights {
 	public static void min_height(int[] arr, int n , int k)
 	{
-		int small =arr[0], large = arr[0] ,diff;
-		int small1 = 999999999, small2 = arr[0];
-		
-		for(int j=0 ;j<n; j++)
-		{
-			if(large<arr[j])
-			{
-				large = arr[j];
-			}
-			
-			else {
-				large = large;
-			}
-			
-			if(arr[j]> k)
-			{
-				if(small1 >arr[j])
-				{
-					small1 = arr[j];
-				}
-				
-				else {
-					small1 = small1;
-				}
-				
-			}
-			
-			else
-			{
-				if(small2 > arr[j])
-				{
-					small2 = arr[j];
-				}
-				
-				else {
-					small2 = small2;
-				}
-				
-			}
-		}
-		
-		int a = small1 - 3;
-		int b = small2 +3;
-		if(a>=b)
-		{
-			small = b;
-		}
-		else
-		{
-			small = a;
-		}
-		diff = large+3-small;
-		System.out.println(large);
-		System.out.println(small);
-		System.out.println(diff);
+		Arrays.sort(arr);
+        int ans = (arr[n - 1] + k)- (arr[0] + k); // Maximum possible height difference
+ 
+        int tempmax = arr[n - 1] - k; // Maximum element when we
+                              // subtract k from whole array
+        int tempmin = arr[0] + k; // Minimum element when we
+                                  // add k to whole array
+        int max, min;
+ 
+        for (int i = 0; i < n - 1; i++) {
+            if (tempmax > (arr[i] + k)) {
+                max = tempmax;
+            }
+            else {
+                max = arr[i] + k;
+            }
+ 
+            if (tempmin < (arr[i + 1] - k)) {
+                min = tempmin;
+            }
+            else {
+                min = arr[i + 1] - k;
+            }
+ 
+            if (ans > (max - min)) {
+                ans = max - min;
+            }
+        }
+       
+		System.out.println(ans);
 		
 	}
 
