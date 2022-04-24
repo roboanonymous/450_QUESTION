@@ -34,6 +34,7 @@ public class Minimize_the_Heights {
        
 		System.out.println(ans);
 		
+
 	}
 
 	public static void main(String[] args) {

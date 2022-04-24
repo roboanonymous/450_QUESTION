@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Minimum_jumps {
 	
@@ -8,15 +8,29 @@ public class Minimum_jumps {
 		
 	 while(n>x)
 		{ 
-		 if(arr[x-1] == 0)
+		 int large = 0, value =0;
+		 if(arr[x] == 0)
 		 {
 			 return Integer.MAX_VALUE;
 		 }
+		 
 		 else
 		 {
-			count ++;
-			x= x+arr[x-1];			
-		}
+			 int t = Math.min(n,x+arr[x-1]);
+		 for(int j=x; j< t; j++)
+		 {
+			 if(large > arr[j] )
+			 {
+				 large = arr[j];
+				 value = j;
+			 }
+		 }
+		 
+		 x = x + arr[value];
+		 System.out.println(x);
+		 count ++;
+		 
+		 }
 		}
 	 
 		return count;
