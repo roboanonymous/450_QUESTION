@@ -5,6 +5,7 @@ public class pos_neg {
 	public static void pos_neg(int[] arr, int n)
 	{
 		int pos=1, neg =0;
+		
 		for(int j=0 ; j<n; j++)
 		{
 			if(arr[j]<0)
